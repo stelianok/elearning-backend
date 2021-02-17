@@ -45,6 +45,10 @@ GET /courses/:id/lessons
 ```
 *exibe todas as aulas de um curso específico*
 
+```HTTP
+GET /courses/:id/lessons/:lesson_id
+```
+*exibe uma aula específica de um curso específico*
 
 **Users**
 
