@@ -9,6 +9,7 @@
 - email: string;
 - password: string;
 
+
 ### Courses
 
 - id: string;
@@ -48,11 +49,6 @@ GET /courses/:id/lessons
 **Users**
 
 ```HTTP
-GET /users
-```
-*Lista todos os usuários*
-
-```HTTP
 POST /users
 ```
 *Cadastra um novo usuário administrador*
@@ -62,6 +58,15 @@ POST /users
 ### Autenticadas
 
 <br/>
+
+
+**Users**
+
+```HTTP
+GET /users
+```
+*Lista todos os usuários*
+
 
 **Courses**
 
