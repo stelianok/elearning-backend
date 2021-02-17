@@ -1,9 +1,18 @@
 import { Router, Request, Response } from 'express';
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 import CreateUserService from '../services/CreateUserService';
+import ListUserService from '../services/ListUsersService';
 
 const usersRouter = Router();
 
+usersRouter.get('/', ensureAuthenticated, async (request: Request, response: Response) => {
+  const listUser = new ListUserService();
+
+  const users = await listUser.execute();
+
+  return response.json(users);
+})
 usersRouter.post('/', async (request: Request, response: Response) => {
   const { name, email, password } = request.body;
 
