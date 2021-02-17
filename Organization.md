@@ -19,6 +19,7 @@
 
 - id: string;
 - name: string;
+- order: number;
 - duration: number; (in minutes)
 - course_id: string;
 - video_id: string;
@@ -31,6 +32,8 @@
 
 <br/>
 
+**Courses**
+
 ```HTTP
 GET /courses
 ```
@@ -40,6 +43,19 @@ GET /courses
 GET /courses/:id/lessons
 ```
 *exibe todas as aulas de um curso específico*
+
+
+**Users**
+
+```HTTP
+GET /users
+```
+*Lista todos os usuários*
+
+```HTTP
+POST /users
+```
+*Cadastra um novo usuário administrador*
 
 ---
 
