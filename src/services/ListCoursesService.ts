@@ -16,7 +16,6 @@ export default class ListCoursesService {
       }
     });
 
-    console.log(courses);
     return courses;
   }
 }

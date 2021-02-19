@@ -23,7 +23,6 @@ export default class CreateCourseService {
     if (!image) {
       image = defaultImage;
     }
-    console.log(image);
     const course = courseRepository.create({ name, image });
 
     await courseRepository.save(course);
