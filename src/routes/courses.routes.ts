@@ -3,6 +3,7 @@ import { Router, Request, Response } from 'express';
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 import CreateCourseService from '../services/CreateCourseService';
 import ListCoursesService from '../services/ListCoursesService';
+import UpdateCourseService from '../services/UpdateCourseService';
 
 const coursesRouter = Router();
 
@@ -26,13 +27,18 @@ coursesRouter.post('/', ensureAuthenticated, async (request: Request, response: 
 
 });
 
-coursesRouter.put('/', async (request: Request, response: Response) => {
-  return response.json({
-    message: 'OK'
-  });
+coursesRouter.put('/:id', ensureAuthenticated, async (request: Request, response: Response) => {
+  const { id } = request.params;
+  const { name, image } = request.body;
+
+  const updateCourseService = new UpdateCourseService();
+
+  const updatedCourse = await updateCourseService.execute({ id, name, image });
+
+  return response.json(updatedCourse);
 });
 
-coursesRouter.delete('/', async (request: Request, response: Response) => {
+coursesRouter.delete('/:id', async (request: Request, response: Response) => {
   return response.sendStatus(204);
 });
 
