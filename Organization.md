@@ -71,6 +71,11 @@ GET /users
 ```
 *Lista todos os usuários*
 
+```HTTP
+DELETE /users
+```
+*Deleta usuário*
+
 
 **Courses**
 
@@ -84,6 +89,11 @@ PUT /courses/:id
 ```
 *Atualiza um curso existente*
 
+```HTTP
+DELETE /courses/:id
+```
+*Deleta um curso*
+
 **Lessons**
 
 ```HTTP
@@ -93,5 +103,10 @@ POST /lessons
 
 ```HTTP
 PUT /lessons/:id
+```
+*Atualiza uma aula existente*
+
+```HTTP
+DELETE /lessons/:id
 ```
 *Atualiza uma aula existente*
