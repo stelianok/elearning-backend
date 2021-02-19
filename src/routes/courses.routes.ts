@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 import CreateCourseService from '../services/CreateCourseService';
+import DeleteCourseService from '../services/DeleteCourseService';
 import ListCoursesService from '../services/ListCoursesService';
 import UpdateCourseService from '../services/UpdateCourseService';
 
@@ -39,6 +40,12 @@ coursesRouter.put('/:id', ensureAuthenticated, async (request: Request, response
 });
 
 coursesRouter.delete('/:id', async (request: Request, response: Response) => {
+  const { id } = request.params;
+
+  const deleteCourseService = new DeleteCourseService();
+
+  await deleteCourseService.execute(id);
+
   return response.sendStatus(204);
 });
 
