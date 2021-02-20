@@ -19,11 +19,16 @@ coursesRouter.get('/', async (request: Request, response: Response) => {
   return response.json(courses);
 });
 
-coursesRouter.get('/:id/lessons', async (request: Request, response: Response) => {
-  const { id } = request.params;
+coursesRouter.get('/:course_id/lessons', async (request: Request, response: Response) => {
+  const { course_id } = request.params;
+  const { lesson_id } = request.query;
+
   const listCourseLessonsService = new ListCourseLessonsService();
 
-  const courseLessons = await listCourseLessonsService.execute(id);
+  const courseLessons = await listCourseLessonsService.execute({
+    course_id,
+    lesson_id: lesson_id?.toString()
+  });
 
   return response.json(courseLessons);
 })
