@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import CreateLessonService from '../services/CreateLessonService';
+import UpdateLessonService from '../services/UpdateLessonService';
 
 const lessonsRouter = Router();
 
@@ -18,7 +19,21 @@ lessonsRouter.post('/', async (request: Request, response: Response) => {
 });
 
 lessonsRouter.put('/:id', async (request: Request, response: Response) => {
+  const { id } = request.params;
+  const { name, order, duration, course_id, video_id } = request.body;
 
+  const updateLessonService = new UpdateLessonService();
+
+  const updatedLesson = await updateLessonService.execute({
+    id,
+    name,
+    order,
+    duration,
+    course_id,
+    video_id
+  });
+
+  return response.json(updatedLesson);
 });
 
 lessonsRouter.delete('/:id', async (request: Request, response: Response) => {
