@@ -16,7 +16,7 @@ class Lesson {
   @Column('decimal')
   duration: number;
 
-  @Column()
+  @Column({ unique: true })
   video_id: string;
 
   @ManyToOne(() => Course)

@@ -39,6 +39,7 @@ export default class CreateLessons1613757006678 implements MigrationInterface {
           name: 'video_id',
           type: 'varchar',
           isNullable: false,
+          isUnique: true,
         },
         {
           name: 'created_at',
