@@ -1,5 +1,4 @@
 import { Router, Request, Response } from 'express';
-import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 import CreateLessonService from '../services/CreateLessonService';
 
 const lessonsRouter = Router();
