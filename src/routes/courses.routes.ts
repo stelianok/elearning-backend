@@ -4,6 +4,7 @@ import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 import CreateCourseService from '../services/CreateCourseService';
 import DeleteCourseService from '../services/DeleteCourseService';
 import ListCoursesService from '../services/ListCoursesService';
+import ListCourseLessonsService from '../services/ListCourseLessonsService';
 import UpdateCourseService from '../services/UpdateCourseService';
 
 const coursesRouter = Router();
@@ -18,6 +19,14 @@ coursesRouter.get('/', async (request: Request, response: Response) => {
   return response.json(courses);
 });
 
+coursesRouter.get('/:id/lessons', async (request: Request, response: Response) => {
+  const { id } = request.params;
+  const listCourseLessonsService = new ListCourseLessonsService();
+
+  const courseLessons = await listCourseLessonsService.execute(id);
+
+  return response.json(courseLessons);
+})
 coursesRouter.post('/', ensureAuthenticated, async (request: Request, response: Response) => {
   const { name, image } = request.body;
 
