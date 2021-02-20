@@ -1,6 +1,8 @@
 import { Router, Request, Response } from 'express';
+
 import CreateLessonService from '../services/CreateLessonService';
 import UpdateLessonService from '../services/UpdateLessonService';
+import DeleteLessonService from '../services/DeleteLessonService';
 
 const lessonsRouter = Router();
 
@@ -37,6 +39,12 @@ lessonsRouter.put('/:id', async (request: Request, response: Response) => {
 });
 
 lessonsRouter.delete('/:id', async (request: Request, response: Response) => {
+  const { id } = request.params;
 
+  const deleteLessonService = new DeleteLessonService();
+
+  await deleteLessonService.execute(id);
+
+  return response.sendStatus(204);
 });
 export default lessonsRouter;
