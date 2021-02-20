@@ -4,7 +4,7 @@ import Course from './Course';
 @Entity('lessons')
 class Lesson {
 
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
