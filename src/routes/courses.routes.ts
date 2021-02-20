@@ -53,7 +53,7 @@ coursesRouter.put('/:id', ensureAuthenticated, async (request: Request, response
   return response.json(updatedCourse);
 });
 
-coursesRouter.delete('/:id', async (request: Request, response: Response) => {
+coursesRouter.delete('/:id', ensureAuthenticated, async (request: Request, response: Response) => {
   const { id } = request.params;
 
   const deleteCourseService = new DeleteCourseService();
