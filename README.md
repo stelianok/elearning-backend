@@ -16,7 +16,7 @@ Aplicação voltada para educação, que oferece cursos de diversas áreas de co
 - express
 - typeorm
 - postgreSQL
-<br/>
+
 [Clique aqui para acessar o app mobile, desenvolvido em React Native](https://github.com/stelianok/elearningApp) <br/>
 [Clique aqui para acessar o design no Figma, feito pelo Tiago Luchtenberg](https://www.figma.com/file/JwNEWWRIIZ0cHVrNM84Iih/e-learning-Copy?node-id=0%3A1)  <br/>
 
