@@ -1,67 +1,23 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
-import CreateCourseService from '../services/CreateCourseService';
-import DeleteCourseService from '../services/DeleteCourseService';
-import ListCoursesService from '../services/ListCoursesService';
-import ListCourseLessonsService from '../services/ListCourseLessonsService';
-import UpdateCourseService from '../services/UpdateCourseService';
+
+import CoursesController from '../controllers/CoursesController';
+import LessonsController from '../controllers/LessonsController';
 
 const coursesRouter = Router();
+const coursesController = new CoursesController();
+const lessonsController = new LessonsController();
 
-coursesRouter.get('/', async (request: Request, response: Response) => {
-  const { name } = request.query;
+coursesRouter.get('/', coursesController.show);
 
-  const listCoursesService = new ListCoursesService();
+coursesRouter.get('/:course_id/lessons', lessonsController.show);
 
-  const courses = await listCoursesService.execute(name?.toString());
+coursesRouter.post('/', ensureAuthenticated, coursesController.create);
 
-  return response.json(courses);
-});
+coursesRouter.put('/:id', ensureAuthenticated, coursesController.update);
 
-coursesRouter.get('/:course_id/lessons', async (request: Request, response: Response) => {
-  const { course_id } = request.params;
-  const { lesson_id } = request.query;
-
-  const listCourseLessonsService = new ListCourseLessonsService();
-
-  const courseLessons = await listCourseLessonsService.execute({
-    course_id,
-    lesson_id: lesson_id?.toString()
-  });
-
-  return response.json(courseLessons);
-})
-coursesRouter.post('/', ensureAuthenticated, async (request: Request, response: Response) => {
-  const { name, image } = request.body;
-
-  const createCourseService = new CreateCourseService();
-  const course = await createCourseService.execute({ name, image });
-
-  return response.json(course);
-
-});
-
-coursesRouter.put('/:id', ensureAuthenticated, async (request: Request, response: Response) => {
-  const { id } = request.params;
-  const { name, image } = request.body;
-
-  const updateCourseService = new UpdateCourseService();
-
-  const updatedCourse = await updateCourseService.execute({ id, name, image });
-
-  return response.json(updatedCourse);
-});
-
-coursesRouter.delete('/:id', ensureAuthenticated, async (request: Request, response: Response) => {
-  const { id } = request.params;
-
-  const deleteCourseService = new DeleteCourseService();
-
-  await deleteCourseService.execute(id);
-
-  return response.sendStatus(204);
-});
+coursesRouter.delete('/:id', ensureAuthenticated, coursesController.delete);
 
 export default coursesRouter;
 
