@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
-import CreateLessonService from '../services/CreateLessonService';
-import DeleteLessonService from '../services/DeleteLessonService';
+
 import ListCourseLessonsService from '../services/ListCourseLessonsService';
+import CreateLessonService from '../services/CreateLessonService';
 import UpdateLessonService from '../services/UpdateLessonService';
+import DeleteLessonService from '../services/DeleteLessonService';
 
 export default class LessonsController {
 
