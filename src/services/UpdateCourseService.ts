@@ -33,7 +33,7 @@ export default class UpdateCourseService {
 
 
     if (!image) {
-      image = defaultImage;
+      image = course.image;
     }
 
     course.name = name;
