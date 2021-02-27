@@ -13,7 +13,6 @@ export default class UpdateCourseService {
 
   public async execute({ id, name, image }: RequestDTO): Promise<Course> {
     const courseRepository = getRepository(Course);
-    const defaultImage = 'https://github.com/stelianok/elearningApp/blob/main/src/assets/img/Talk.png';
     const course = await courseRepository.findOne(id);
 
     if (!course) {
