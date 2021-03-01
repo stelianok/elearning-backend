@@ -65,7 +65,7 @@ export default class CreateLessons1613757006678 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('courses', 'CoursesLessons');
+    await queryRunner.dropForeignKey('lessons', 'CoursesLessons');
 
     await queryRunner.dropTable('lessons');
   }
