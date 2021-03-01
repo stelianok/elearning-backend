@@ -1,9 +1,10 @@
 import { Router } from 'express';
 
-import usersRouter from './users.routes';
-import sessionsRouter from './session.routes';
-import coursesRouter from './courses.routes';
-import lessonsRouter from './lessons.routes';
+import usersRouter from '@modules/users/infra/http/routes/users.routes';
+import sessionsRouter from '@modules/users/infra/http/routes/session.routes';
+import coursesRouter from '@modules/courses/infra/http/routes/courses.routes';
+import lessonsRouter from '@modules/courses/infra/http/routes/lessons.routes';
+
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const routes = Router();

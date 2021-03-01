@@ -1,13 +1,18 @@
 import 'reflect-metadata';
-import './database';
+import '../typeorm';
 import 'express-async-errors';
+import cors from 'cors';
+
+import '@shared/infra/typeorm';
+
 import express, { NextFunction, Request, Response } from 'express';
 
-import AppError from './errors/AppError';
-import routes from './routes';
+import AppError from '@shared/errors/AppError';
+import routes from '@shared/infra/http/routes';
 
 const app = express();
 
+app.use(cors())
 app.use(express.json());
 app.use(routes);
 app.use(

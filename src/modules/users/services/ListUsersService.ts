@@ -1,7 +1,7 @@
 
 import { getRepository } from 'typeorm';
 
-import User from '../models/User';
+import User from '../infra/typeorm/entities/User';
 
 class ListUserService {
   public async execute(): Promise<User[]> {

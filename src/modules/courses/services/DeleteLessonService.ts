@@ -1,7 +1,7 @@
 import { getRepository } from 'typeorm';
 
-import AppError from '../errors/AppError';
-import Lesson from '../models/Lesson';
+import AppError from '@shared/errors/AppError';
+import Lesson from '../infra/typeorm/entities/Lesson';
 
 export default class DeleteLessonService {
   public async execute(id: string): Promise<void> {

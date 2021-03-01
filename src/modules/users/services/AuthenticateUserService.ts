@@ -1,11 +1,11 @@
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import { getRepository } from 'typeorm';
-import authConfig from '../config/auth';
+import authConfig from '@config/auth';
 
-import AppError from '../errors/AppError';
+import AppError from '@shared/errors/AppError';
 
-import User from '../models/User';
+import User from '../infra/typeorm/entities/User';
 
 interface RequestDTO {
   email: string;
@@ -34,7 +34,7 @@ export default class AuthenticateUserService {
     }
 
     const { secret, expiresIn } = authConfig.jwt;
-    const token = sign({}, secret, { subject: user.id, expiresIn });
+    const token = sign({}, String(secret), { subject: user.id, expiresIn });
 
     return {
       user,

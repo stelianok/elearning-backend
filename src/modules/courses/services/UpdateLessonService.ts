@@ -1,7 +1,7 @@
 import { getRepository } from 'typeorm';
 
-import Lesson from '../models/Lesson';
-import AppError from '../errors/AppError';
+import Lesson from '../infra/typeorm/entities/Lesson';
+import AppError from 'shared/errors/AppError';
 
 interface RequestDTO {
   id: string;

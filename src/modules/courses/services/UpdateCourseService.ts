@@ -1,7 +1,7 @@
 import { getRepository, Not } from 'typeorm';
 
-import Course from '../models/Course';
-import AppError from '../errors/AppError';
+import Course from '../infra/typeorm/entities/Course';
+import AppError from '@shared/errors/AppError';
 
 interface RequestDTO {
   id: string;

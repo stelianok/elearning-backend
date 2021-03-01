@@ -1,5 +1,5 @@
 import { getRepository, Like } from 'typeorm';
-import Course from '../models/Course';
+import Course from '../infra/typeorm/entities/Course';
 
 export default class ListCoursesService {
   public async execute(name?: string): Promise<Course[]> {
