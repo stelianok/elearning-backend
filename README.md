@@ -1,6 +1,6 @@
 
 <h1 align="center">
-<img alt="Logo" src="https://i.imgur.com/xZ1xKBr.png" width="600px" /> 
+<img alt="Logo" src="https://i.imgur.com/xZ1xKBr.png" width="600px" />
 </h1>
 
 <h3 align="center">
@@ -17,17 +17,17 @@
   <a href="https://www.linkedin.com/in/kauã-steliano/">
     <img alt="Made by" src="https://img.shields.io/badge/made%20by-Kauã%20Steliano-gree">
   </a>
-  
+
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/stelianok/elearning-backend">
-  
+
   <a href="https://github.com/EliasGcf/readme-template/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/stelianok/elearning-backend">
   </a>
-  
+
   <a href="https://github.com/EliasGcf/readme-template/issues">
     <img alt="Repository issues" src="https://img.shields.io/github/issues/stelianok/elearning-backend">
   </a>
-  
+
   <img alt="GitHub" src="https://img.shields.io/github/license/stelianok/elearning-backend">
 </p>
 
@@ -39,9 +39,7 @@
   <a href="#-license">License</a>
 </p>
 
-<p id="insomniaButton" align="center">
-  <a href="" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
-</p>
+<a href="https://insomnia.rest/run/?label=ElearningAPI&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fstelianok%2Felearning-backend%2Fmain%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 
 ## 👨🏻‍💻 About the project
 
